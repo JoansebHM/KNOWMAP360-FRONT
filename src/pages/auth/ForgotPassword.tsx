@@ -1,12 +1,12 @@
 import toast from "react-hot-toast";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BlueButton from "../../components/buttons/BlueButton";
 import InputField from "../../components/fields/InputField";
 import { PATHS } from "../../routes/paths";
 import { useState } from "react";
 
 function ForgotPassword() {
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
   const [isSending, setIsSending] = useState(false);
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -53,7 +53,7 @@ function ForgotPassword() {
               );
             }}
           >
-            Enviar enlace
+            {isSending ? "Enviando..." : "Enviar Enlace"}
           </BlueButton>
           {/* Enlace para recuperar contraseña y registro */}
           <div className="flex gap-1">
