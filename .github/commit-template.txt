@@ -1,0 +1,20 @@
+# Type: feat | fix | docs | style | refactor | test | chore
+# Format:
+# <type>(<scope>): <short message>
+#
+# Examples:
+# feat(login): add email validation
+# fix(api): fix error in API response
+# refactor(ui): improve component structure
+# docs: update readme
+
+<type>(<scope>): <short description>
+
+# Change details (optional):
+#
+# -
+# -
+# -
+
+# Related issues (optional):
+# Closes #123
