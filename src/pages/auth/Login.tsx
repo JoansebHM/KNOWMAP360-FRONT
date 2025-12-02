@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BlueButton from "../../components/buttons/BlueButton";
 import CheckBoxField from "../../components/fields/CheckBoxField";
 import InputField from "../../components/fields/InputField";
 import { PATHS } from "../../routes/paths";
+import { ChevronLeft } from "lucide-react";
 
 function Login() {
+  const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white border border-gray-200 px-6 py-5 rounded-xl shadow-lg w-[400px]">
         {/* Titulo con icono y mensaje informativo */}
         <div className="flex flex-col items-center gap-5">
+          <Link to={PATHS.HOME} className="self-start">
+            <ChevronLeft />
+          </Link>
           <span className="bg-blue-800 text-white p-2 text-2xl rounded-lg font-bold">
             K360
           </span>
@@ -40,7 +45,9 @@ function Login() {
               defaultChecked: true,
             }}
           />
-          <BlueButton type="button">Iniciar sesión</BlueButton>
+          <BlueButton type="button" onClick={() => navigate(PATHS.DASHBOARD)}>
+            Iniciar sesión
+          </BlueButton>
           {/* Enlace para recuperar contraseña y registro */}
           <div className="flex flex-col items-center gap-2">
             <div className="flex gap-1">
