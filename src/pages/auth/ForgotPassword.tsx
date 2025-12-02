@@ -4,6 +4,7 @@ import BlueButton from "../../components/buttons/BlueButton";
 import InputField from "../../components/fields/InputField";
 import { PATHS } from "../../routes/paths";
 import { useState } from "react";
+import { ChevronLeft } from "lucide-react";
 
 function ForgotPassword() {
   //   const navigate = useNavigate();
@@ -13,7 +14,10 @@ function ForgotPassword() {
       <div className="bg-white border border-gray-200 px-6 py-5 rounded-xl shadow-lg w-[400px]">
         {/* Titulo con icono y mensaje informativo */}
         <div className="flex flex-col items-center gap-5">
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-2 w-full">
+            <Link to={PATHS.LOGIN} className="self-start">
+              <ChevronLeft />
+            </Link>
             <span className="font-bold text-2xl">Recuperar Constraseña</span>
             <span className="text-gray-500 text-sm">
               Ingresa tu email para recuperar tu contraseña
