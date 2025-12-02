@@ -1,14 +1,27 @@
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
+import { PATHS } from "./paths";
+
 export const routes = [
   {
-    path: "/",
+    path: PATHS.HOME,
     element: <div>Home</div>,
   },
   {
-    path: "/login",
-    element: <div>Login</div>,
+    path: PATHS.LOGIN,
+    element: <Login />,
   },
   {
-    path: "/dashboard",
+    path: PATHS.RECOVER_PASSWORD,
+    element: <ForgotPassword />,
+  },
+  {
+    path: PATHS.REGISTER,
+    element: <Register />,
+  },
+  {
+    path: PATHS.DASHBOARD,
     element: <div>Dashboard</div>,
   },
 ];
