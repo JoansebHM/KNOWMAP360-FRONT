@@ -19,9 +19,7 @@ function Login() {
                         K360
                     </span>
                     <div className="flex flex-col items-center gap-2">
-                        <span className="font-bold text-2xl">
-                            Bienvenidosaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssssssssssss
-                        </span>
+                        <span className="font-bold text-2xl">Bienvenidos</span>
                         <span className="text-gray-500 text-sm">
                             Inicia sesión con tu cuenta para continuar
                         </span>

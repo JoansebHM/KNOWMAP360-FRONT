@@ -3,7 +3,7 @@
   "tabWidth": 2,
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": ["*.tsx"],
       "options": {
         "tabWidth": 4,
         "printWidth": 100
