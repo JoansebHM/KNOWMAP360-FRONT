@@ -1,10 +1,10 @@
-import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
-import BlueButton from "../../components/buttons/BlueButton";
-import InputField from "../../components/fields/InputField";
-import { PATHS } from "../../routes/paths";
-import { useState } from "react";
-import { ChevronLeft } from "lucide-react";
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import BlueButton from '../../components/buttons/BlueButton';
+import InputField from '../../components/fields/InputField';
+import { PATHS } from '../../routes/paths';
+import { useState } from 'react';
+import { ChevronLeft } from 'lucide-react';
 
 function ForgotPassword() {
   //   const navigate = useNavigate();
@@ -27,8 +27,8 @@ function ForgotPassword() {
           <InputField
             label="Email"
             props={{
-              type: "email",
-              placeholder: "tucorreo@ejemplo.com",
+              type: 'email',
+              placeholder: 'tucorreo@ejemplo.com',
             }}
           />
 
@@ -50,14 +50,14 @@ function ForgotPassword() {
                   }, 2000);
                 }),
                 {
-                  loading: "Enviando enlace...",
-                  success: "¡Enlace enviado! Revisa tu correo.",
-                  error: "Error al enviar el enlace. Inténtalo de nuevo.",
+                  loading: 'Enviando enlace...',
+                  success: '¡Enlace enviado! Revisa tu correo.',
+                  error: 'Error al enviar el enlace. Inténtalo de nuevo.',
                 }
               );
             }}
           >
-            {isSending ? "Enviando..." : "Enviar Enlace"}
+            {isSending ? 'Enviando...' : 'Enviar Enlace'}
           </BlueButton>
           {/* Enlace para recuperar contraseña y registro */}
           <div className="flex gap-1">
