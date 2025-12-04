@@ -4,4 +4,5 @@ export const PATHS = {
   DASHBOARD: "/dashboard",
   RECOVER_PASSWORD: "/recover-password",
   REGISTER: "/register",
+  NOT_FOUND: "/*",
 };
