@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 function Main() {
-    return <div className="p-5">Contenido Principal</div>;
+    return (
+        <main className="p-5">
+            <Outlet />
+        </main>
+    );
 }
 
 export default Main;
