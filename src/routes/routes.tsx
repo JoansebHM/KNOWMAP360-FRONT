@@ -3,12 +3,33 @@ import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
 import NotFound from '../pages/general/NotFound';
 import Dashboard from '../pages/private/Dashboard';
+import Search from '../pages/private/Search';
+import DocumentDetail from '../pages/private/DocumentDetail';
+import PersonProfile from '../pages/private/PersonProfile';
+import UserManagement from '../pages/private/dashboard/UserManagement';
+import DocumentApproval from '../pages/private/dashboard/DocumentApproval';
 import { DASHBOARD_PATHS, PATHS } from './paths';
 
 export const routes = [
     {
         path: PATHS.HOME,
-        element: <div>Home</div>,
+        element: <Search />,
+    },
+    {
+        path: PATHS.SEARCH,
+        element: <Search />,
+    },
+    {
+        path: PATHS.DOCUMENTS,
+        element: <Search />,
+    },
+    {
+        path: PATHS.DOCUMENT_DETAIL,
+        element: <DocumentDetail />,
+    },
+    {
+        path: PATHS.PERSON_PROFILE,
+        element: <PersonProfile />,
     },
     {
         path: PATHS.LOGIN,
@@ -28,7 +49,15 @@ export const routes = [
         subRoutes: [
             {
                 path: DASHBOARD_PATHS.HOME,
-                element: <div>Dashboard Home</div>,
+                element: <div>Dashboard Admin Home</div>,
+            },
+            {
+                path: DASHBOARD_PATHS.USER_MANAGEMENT,
+                element: <UserManagement />,
+            },
+            {
+                path: DASHBOARD_PATHS.DOCUMENT_APPROVAL,
+                element: <DocumentApproval />,
             },
             {
                 path: DASHBOARD_PATHS.PROCESSES,
