@@ -1,4 +1,6 @@
-import { DocumentCategory } from '../../types/types';
+import type { ReactElement } from 'react';
+import type { DocumentCategory } from '../../types/types';
+import { DocumentCategory as DC } from '../../types/types';
 import {
     FileText,
     FolderKanban,
@@ -13,36 +15,39 @@ interface CategoryBadgeProps {
     size?: 'sm' | 'md' | 'lg';
 }
 
-const categoryConfig: Record<
-    DocumentCategory,
-    { color: string; bgColor: string; icon: JSX.Element }
-> = {
-    [DocumentCategory.THESIS]: {
+interface CategoryConfig {
+    color: string;
+    bgColor: string;
+    icon: ReactElement;
+}
+
+const categoryConfig: Record<DocumentCategory, CategoryConfig> = {
+    [DC.THESIS]: {
         color: 'text-purple-700',
         bgColor: 'bg-purple-100',
         icon: <FileText size={14} />,
     },
-    [DocumentCategory.PROJECT]: {
+    [DC.PROJECT]: {
         color: 'text-blue-700',
         bgColor: 'bg-blue-100',
         icon: <FolderKanban size={14} />,
     },
-    [DocumentCategory.BLOG]: {
+    [DC.BLOG]: {
         color: 'text-green-700',
         bgColor: 'bg-green-100',
         icon: <BookOpen size={14} />,
     },
-    [DocumentCategory.ARTICLE]: {
+    [DC.ARTICLE]: {
         color: 'text-orange-700',
         bgColor: 'bg-orange-100',
         icon: <Newspaper size={14} />,
     },
-    [DocumentCategory.RESEARCH]: {
+    [DC.RESEARCH]: {
         color: 'text-red-700',
         bgColor: 'bg-red-100',
         icon: <FlaskConical size={14} />,
     },
-    [DocumentCategory.PRESENTATION]: {
+    [DC.PRESENTATION]: {
         color: 'text-indigo-700',
         bgColor: 'bg-indigo-100',
         icon: <Presentation size={14} />,

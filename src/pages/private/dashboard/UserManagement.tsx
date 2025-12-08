@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, UserPlus, Trash2, Edit, Shield, Mail } from 'lucide-react';
+import { Search, UserPlus, Trash2, Edit, Shield, Mail, Check, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 import UserFormModal from '../../../components/modals/UserFormModal';
 
@@ -9,6 +9,7 @@ interface User {
     email: string;
     role: 'admin' | 'user';
     status: 'active' | 'inactive';
+    approved: boolean;
     createdAt: string;
 }
 
@@ -20,6 +21,7 @@ const mockUsers: User[] = [
         email: 'admin@knowledge360.com',
         role: 'admin',
         status: 'active',
+        approved: true,
         createdAt: '2024-01-15',
     },
     {
@@ -28,6 +30,7 @@ const mockUsers: User[] = [
         email: 'maria.gonzalez@university.edu',
         role: 'user',
         status: 'active',
+        approved: true,
         createdAt: '2024-02-20',
     },
     {
@@ -36,6 +39,7 @@ const mockUsers: User[] = [
         email: 'carlos.rodriguez@university.edu',
         role: 'user',
         status: 'active',
+        approved: false,
         createdAt: '2024-03-10',
     },
 ];
@@ -70,6 +74,7 @@ function UserManagement() {
             email: formData.email,
             role: formData.role,
             status: 'active',
+            approved: false,
             createdAt: new Date().toISOString().split('T')[0],
         };
 
@@ -105,6 +110,18 @@ function UserManagement() {
         const newStatus = user.status === 'active' ? 'inactive' : 'active';
         setUsers(users.map((u) => (u.id === user.id ? { ...u, status: newStatus } : u)));
         toast.success(`Usuario ${user.name} ${newStatus === 'active' ? 'activado' : 'desactivado'}`);
+    };
+
+    const handleApproveUser = (user: User) => {
+        setUsers(users.map((u) => (u.id === user.id ? { ...u, approved: true } : u)));
+        toast.success(`Usuario ${user.name} aprobado`);
+    };
+
+    const handleRejectUser = (user: User) => {
+        if (window.confirm(`¿Estás seguro de rechazar a ${user.name}?`)) {
+            setUsers(users.map((u) => (u.id === user.id ? { ...u, approved: false, status: 'inactive' } : u)));
+            toast.error(`Usuario ${user.name} rechazado`);
+        }
     };
 
     const openEditModal = (user: User) => {
@@ -168,6 +185,9 @@ function UserManagement() {
                                     Estado
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Aprobación
+                                </th>
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Fecha Creación
                                 </th>
                                 <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -208,6 +228,31 @@ function UserManagement() {
                                         >
                                             {user.status === 'active' ? 'Activo' : 'Inactivo'}
                                         </button>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {user.approved ? (
+                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                                                <Check size={12} />
+                                                Aprobado
+                                            </span>
+                                        ) : (
+                                            <div className="flex items-center gap-2">
+                                                <button
+                                                    onClick={() => handleApproveUser(user)}
+                                                    className="flex items-center gap-1 px-2.5 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-xs font-medium"
+                                                >
+                                                    <Check size={14} />
+                                                    Aprobar
+                                                </button>
+                                                <button
+                                                    onClick={() => handleRejectUser(user)}
+                                                    className="flex items-center gap-1 px-2.5 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-xs font-medium"
+                                                >
+                                                    <X size={14} />
+                                                    Rechazar
+                                                </button>
+                                            </div>
+                                        )}
                                     </td>
                                     <td className="px-6 py-4 text-sm text-gray-600">{user.createdAt}</td>
                                     <td className="px-6 py-4">
